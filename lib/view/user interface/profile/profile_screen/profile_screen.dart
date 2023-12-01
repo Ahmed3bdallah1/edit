@@ -27,8 +27,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // ApiFunctions().profileApi();
-    // print(generalToken);
     TextEditingController searchController = TextEditingController();
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
@@ -224,7 +222,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       GeneralButton(
                           builder: (_) => EditProfile(token: widget.token),
                           name: "Edit profile",
-                          token: widget.token ?? "",
+                          token: widget.token,
                           image: "assets/profile/edit_profile.png"),
                       const Divider(thickness: 1),
                       GeneralButton(
@@ -278,28 +276,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       OtherButton(
                         builder: (_) => AppliedJobs(token: generalToken),
                         name: "Accessibility",
-                        token: widget.token ?? "",
+                        token: widget.token,
                       ),
                       const Divider(thickness: 1),
                       OtherButton(
                         builder: (_) => HomeScreen(
                           token: generalToken,
-                          name: generalName,
                         ),
                         name: "Help Center",
-                        token: widget.token ?? "",
+                        token: widget.token,
                       ),
                       const Divider(thickness: 1),
                       OtherButton(
                         builder: (_) => EditProfile(token: generalToken),
                         name: "Terms and policy",
-                        token: widget.token ?? "",
+                        token: widget.token,
                       ),
                       const Divider(thickness: 1),
                       OtherButton(
                         builder: (_) => EditProfile(token: generalToken),
                         name: "Privacy Police",
-                        token: widget.token ?? "",
+                        token: widget.token,
                       ),
                     ],
                   ),

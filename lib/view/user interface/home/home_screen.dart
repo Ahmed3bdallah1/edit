@@ -9,9 +9,7 @@ import 'applied_jobs/get_all_jobs_function.dart';
 
 class HomeScreen extends StatefulWidget {
   final String token;
-  final String name;
-
-  const HomeScreen({super.key, required this.token, required this.name});
+  const HomeScreen({super.key, required this.token});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();

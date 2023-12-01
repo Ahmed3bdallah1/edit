@@ -324,8 +324,8 @@ class _ApplyJobAddPortfolioState extends State<ApplyJobAddPortfolio> {
                                 image: images);
                             Navigator.pushReplacement(
                                 context,
-                                customPageRouteTransition(HomeScreen(
-                                    token: generalToken, name: generalName)));
+                                customPageRouteTransition(
+                                    HomeScreen(token: generalToken)));
                           },
                           child: const ReusableAdjustedText(
                               message: 'Submit',

@@ -15,7 +15,7 @@ class NavigationBarConfig extends StatefulWidget {
 class _NavigationBarConfigState extends State<NavigationBarConfig> {
   int currentIndex = 0;
   final screens = [
-    HomeScreen(token: generalToken, name: generalName),
+    HomeScreen(token: generalToken),
     const MessagesScreen(),
     AppliedJobs(token: generalToken),
     ProfileScreen(token: generalToken),
