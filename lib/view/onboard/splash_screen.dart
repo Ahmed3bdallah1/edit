@@ -2,9 +2,10 @@ import 'dart:async';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:graduation_project/common/managers.dart';
 import 'package:graduation_project/common/widgets/reusable_text.dart';
-
+import 'package:graduation_project/view/user%20interface/home/home_screen.dart';
+import 'package:graduation_project/view/user%20interface/profile/profile_screen/profile_screen_function.dart';
 import 'onboard_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -16,6 +17,14 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   bool isConnected = false;
+
+  Widget screen() {
+    if (generalToken.isNotEmpty) {
+      ProfileScreenFunction().profileApi();
+      return HomeScreen(token: generalToken);
+    }
+    return const OnBoard();
+  }
 
   @override
   void initState() {
@@ -50,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (isConnected) {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (_) => const OnBoard(),
+            builder: (_) => screen(),
           ),
         );
       } else {

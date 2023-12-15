@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import '../../../../common/managers.dart';
 import '../../../../common/utils/dialogs/snak_bar.dart';
-import '../../../../services/models/api_constants.dart';
+import '../../../../services/remote/api_constants.dart';
 
 class ProfilePortfolioFunction {
   Constants constants = Constants();

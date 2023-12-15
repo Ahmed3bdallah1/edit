@@ -2,8 +2,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/common/utils/dialogs/snak_bar.dart';
 import 'package:http/http.dart' as http;
+import '../../../../common/managers.dart';
 import '../../../../common/utils/dialogs/show_dialog.dart';
-import '../../../../services/models/api_constants.dart';
+import '../../../../services/remote/api_constants.dart';
 
 class ChangePasswordFunction{
   Constants constants = Constants();

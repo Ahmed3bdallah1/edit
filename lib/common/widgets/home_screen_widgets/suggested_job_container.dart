@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/common/transition/page_route_transition.dart';
 import 'package:graduation_project/common/widgets/reusable_text.dart';
-
-import '../../../services/models/api_constants.dart';
 import '../../../view/user interface/apply_job/apply_job1.dart';
 import '../../../view/user interface/home/applied_jobs/get_all_jobs_function.dart';
 import '../../../view/user interface/home/job_details.dart';
+import '../../managers.dart';
 import '../../utils/colors/colors.dart';
 
 class SuggestedJobContainerHS extends StatefulWidget {

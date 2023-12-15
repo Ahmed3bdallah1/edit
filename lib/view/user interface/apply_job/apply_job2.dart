@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/common/widgets/home_screen_widgets/type_of_work_container.dart';
 import 'package:graduation_project/common/widgets/reusable_text.dart';
-import 'package:graduation_project/services/models/api_constants.dart';
+import '../../../common/managers.dart';
 import '../../../common/transition/page_route_transition.dart';
 import '../../../common/utils/colors/colors.dart';
 import 'apply_job3.dart';

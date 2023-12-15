@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import '../../../common/managers.dart';
 import '../../../common/utils/dialogs/show_dialog.dart';
-import '../../models/api_constants.dart';
+import '../../remote/api_constants.dart';
 import 'job_selection_screen.dart';
 
 class RegisterFunction{
@@ -25,8 +26,6 @@ class RegisterFunction{
       String token = jsonResponse['token'];
 
       generalToken = token;
-      // DbHelper.createUser(1, constants.token);
-      //
       print(response.body);
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (_) => const JobSelectionScreen()));

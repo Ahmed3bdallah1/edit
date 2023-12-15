@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/common/transition/page_route_transition.dart';
 import 'package:graduation_project/common/widgets/reusable_text.dart';
-import 'package:graduation_project/services/models/api_constants.dart';
 
+import '../../../common/managers.dart';
 import '../apply_job/apply_job1.dart';
 
 class JobDetails extends StatefulWidget {

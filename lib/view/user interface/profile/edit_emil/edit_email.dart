@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/common/transition/page_route_transition.dart';
 import 'package:graduation_project/common/widgets/reusable_text.dart';
-import 'package:graduation_project/services/models/api_constants.dart';
 import 'package:graduation_project/view/user%20interface/profile/edit_emil/second_edit_email.dart';
+
+import '../../../../common/managers.dart';
 
 class EditEmail extends StatefulWidget {
   final String token;

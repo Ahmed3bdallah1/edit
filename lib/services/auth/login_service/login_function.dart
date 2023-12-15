@@ -1,14 +1,14 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import '../../../common/managers.dart';
 import '../../../common/transition/page_route_transition.dart';
 import '../../../view/user interface/home/bottom_navigation_bar_config.dart';
 import '../../../view/user interface/profile/profile_screen/profile_screen_function.dart';
-import '../../models/api_constants.dart';
+import '../../local/shared_preferences.dart';
+import '../../remote/api_constants.dart';
 import 'package:http/http.dart' as http;
 
-import '../../models/user_models/user_database.dart';
-
-class LoginFunction{
+class LoginFunction {
   Constants constants = Constants();
 
   Future<void> login(
@@ -24,14 +24,14 @@ class LoginFunction{
     );
     if (response.statusCode == 200) {
       var jsonResponse = jsonDecode(response.body);
-      // String userName = jsonResponse['user'][
-      //     'name']; // Assuming the user's name is under 'name' key in the JSON response
 
       String token = jsonResponse['token'];
       generalToken = token;
+      CacheHelper.saveData(key: "token", value: token).then((value) {
+        generalToken = token;
+      });
       print(generalToken);
-      DbHelper.createUser(1, generalToken);
-      ProfileScreenFuction().profileApi();
+      ProfileScreenFunction().profileApi();
       Navigator.pushReplacement(
           context, customPageRouteTransition(const NavigationBarConfig()));
     } else {
@@ -40,5 +40,4 @@ class LoginFunction{
       print(response.body);
     }
   }
-
 }

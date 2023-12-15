@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../services/models/api_constants.dart';
+import '../../../common/managers.dart';
+import '../../../services/remote/api_constants.dart';
 import '../messages/messages_screen.dart';
 import '../profile/profile_screen/profile_screen.dart';
 import 'applied_jobs/applied_jobs.dart';

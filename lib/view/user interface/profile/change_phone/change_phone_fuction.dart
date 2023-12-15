@@ -2,7 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/common/utils/dialogs/snak_bar.dart';
 import 'package:http/http.dart' as http;
-import '../../../../services/models/api_constants.dart';
+import '../../../../common/managers.dart';
+import '../../../../services/remote/api_constants.dart';
 
 class ChangePhoneFunction{
   Constants constants = Constants();

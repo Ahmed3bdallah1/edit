@@ -14,9 +14,3 @@ class Constants {
   final String getAllJobs="https://project2.amit-learning.com/api/jobs";
   final String applyToJob="https://project2.amit-learning.com/api/apply";
 }
-
-late String generalToken;
-String generalName="";
-String generalEmail="";
-String generalNumber="";
-int generalID=1;

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../../../../services/models/api_constants.dart';
+import '../../../../common/managers.dart';
+import '../../../../services/remote/api_constants.dart';
 
 class AppliedJobsFunction{
   Constants constants = Constants();

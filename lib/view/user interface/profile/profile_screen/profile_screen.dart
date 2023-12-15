@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
-import 'package:graduation_project/services/models/api_constants.dart';
+import 'package:graduation_project/services/remote/api_constants.dart';
 import 'package:graduation_project/common/widgets/portifolio_widgets/general_buttoms.dart';
 import 'package:graduation_project/common/widgets/portifolio_widgets/other_buttoms.dart';
 import 'package:graduation_project/common/widgets/reusable_text.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import '../../../../common/managers.dart';
 import '../../home/applied_jobs/applied_jobs.dart';
 import '../../home/home_screen.dart';
 import '../edit_profile/edit_profile.dart';

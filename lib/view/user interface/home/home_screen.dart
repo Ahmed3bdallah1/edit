@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:graduation_project/common/widgets/home_screen_widgets/recent_job_container.dart';
 import 'package:graduation_project/common/widgets/home_screen_widgets/suggested_job_container.dart';
 import 'package:graduation_project/common/widgets/reusable_text.dart';
-import 'package:graduation_project/services/models/api_constants.dart';
-
+import '../../../common/managers.dart';
 import '../profile/profile_screen/profile_screen_function.dart';
 import 'applied_jobs/get_all_jobs_function.dart';
 
@@ -18,7 +17,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late TextEditingController searchController;
   late Future<List<Map<String, dynamic>>> allJobsData;
-  late String name;
 
   @override
   void initState() {
@@ -26,7 +24,6 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     searchController = TextEditingController();
     allJobsData = GetAllJobsFunction().getAllJobs();
-    name = ProfileScreenFuction().getGeneralName;
   }
 
   @override
@@ -42,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
             title:
                 Column(mainAxisAlignment: MainAxisAlignment.start, children: [
               Row(children: [
-                Text("Hi, $name👋", style: const TextStyle(fontSize: 18))
+                Text("Hi, $generalName👋", style: const TextStyle(fontSize: 18))
               ]),
               const Row(children: [
                 Text('Create a better future for yourself here',

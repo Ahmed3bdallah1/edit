@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/services/auth/register_services/register_function.dart';
-import 'package:graduation_project/services/models/api_constants.dart';
+import 'package:graduation_project/services/remote/api_constants.dart';
 import 'package:graduation_project/services/auth/login_service/login_page.dart';
 
 import '../../../common/widgets/reusable_text.dart';

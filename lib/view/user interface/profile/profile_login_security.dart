@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/common/widgets/portifolio_widgets/other_buttoms.dart';
-import 'package:graduation_project/services/models/api_constants.dart';
 import 'package:graduation_project/view/user%20interface/profile/two_step_verification.dart';
-
+import '../../../common/managers.dart';
 import '../../../common/widgets/reusable_text.dart';
 import 'change_password/change_password.dart';
 import 'change_phone/change_phone.dart';

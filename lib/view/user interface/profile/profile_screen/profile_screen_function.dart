@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../../../../services/models/api_constants.dart';
+import '../../../../common/managers.dart';
+import '../../../../services/local/shared_preferences.dart';
+import '../../../../services/remote/api_constants.dart';
 
-class ProfileScreenFuction{
-
+class ProfileScreenFunction {
   Constants constants = Constants();
-  get getGeneralName => generalName;
 
   Future<void> profileApi() async {
     var response = await http.get(
@@ -18,13 +18,18 @@ class ProfileScreenFuction{
       var name = xresponse["data"]["name"];
       var email = xresponse["data"]["email"];
       var id = xresponse["data"]["id"];
-      generalName = name;
-      generalEmail = email;
-      generalID = id;
+      CacheHelper.saveData(key: "name", value: name).then((value) {
+        generalName = name;
+      });
+      CacheHelper.saveData(key: "email", value: email).then((value) {
+        generalEmail = email;
+      });
+      CacheHelper.saveData(key: "id", value: id).then((value) {
+        generalID = id;
+      });
       print(generalName);
     } else {
       print(response.statusCode);
     }
   }
-
 }
