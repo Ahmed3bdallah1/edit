@@ -6,7 +6,7 @@ import '../../../../common/utils/dialogs/snak_bar.dart';
 import '../../../../services/remote/api_constants.dart';
 
 class EditProfileFunction{
-  Constants constants = Constants();
+  ApiConstants constants = ApiConstants();
 
   void editProfileData(BuildContext context,
       {required String bio,

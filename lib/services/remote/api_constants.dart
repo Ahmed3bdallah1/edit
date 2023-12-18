@@ -1,16 +1,14 @@
-class Constants {
-  String loginUrl = 'https://project2.amit-learning.com/api/auth/login';
-  String registerUrl = 'https://project2.amit-learning.com/api/auth/register';
-  String profileUrl = 'https://project2.amit-learning.com/api/auth/profile';
-  String editProfileUrl =
-      'https://project2.amit-learning.com/api/user/profile/edit';
-  String portifolioUrl =
-      'https://project2.amit-learning.com/api/user/profile/portofolios';
-  String editEmail = 'https://project2.amit-learning.com/api/auth/otp';
-  String changePassword =
-      "https://project2.amit-learning.com/api/auth/user/update";
+import 'package:graduation_project/common/managers.dart';
 
-  final String getAppliedJobs = 'https://project2.amit-learning.com/api/apply/2';
-  final String getAllJobs="https://project2.amit-learning.com/api/jobs";
-  final String applyToJob="https://project2.amit-learning.com/api/apply";
+class ApiConstants {
+  String loginUrl = '$baseUrl/auth/login';
+  String registerUrl = '$baseUrl/auth/register';
+  String profileUrl = '$baseUrl/auth/profile';
+  String editProfileUrl = '$baseUrl/user/profile/edit';
+  String portifolioUrl = '$baseUrl/user/profile/portofolios';
+  String editEmail = '$baseUrl/auth/otp';
+  String changePassword = "$baseUrl/auth/user/update";
+  String getAppliedJobs = '$baseUrl/apply/2';
+  String getAllJobs = "$baseUrl/jobs";
+  String applyToJob = "$baseUrl/apply";
 }

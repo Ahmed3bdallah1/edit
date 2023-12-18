@@ -15,7 +15,7 @@ class AppliedJobs extends StatefulWidget {
 
 class _AppliedJobsState extends State<AppliedJobs>
     with TickerProviderStateMixin {
-  Constants constants = Constants();
+  ApiConstants constants = ApiConstants();
   late Future<List<Map<String, dynamic>>> appliedData;
   late TabController tabController;
 

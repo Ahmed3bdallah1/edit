@@ -23,7 +23,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  Constants constants = Constants();
+  ApiConstants constants = ApiConstants();
   String aboutText = "";
 
   @override

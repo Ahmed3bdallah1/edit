@@ -6,7 +6,7 @@ import '../../../../common/utils/dialogs/snak_bar.dart';
 import '../../../../services/remote/api_constants.dart';
 
 class ProfilePortfolioFunction {
-  Constants constants = Constants();
+  ApiConstants constants = ApiConstants();
 
   Future<void> postCv(BuildContext context, String file, String image) async {
     var response = await http.post(Uri.parse(constants.portifolioUrl),

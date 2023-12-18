@@ -7,7 +7,7 @@ import '../../../../common/utils/dialogs/show_dialog.dart';
 import '../../../../services/remote/api_constants.dart';
 
 class ChangePasswordFunction{
-  Constants constants = Constants();
+  ApiConstants constants = ApiConstants();
 
 
   Future<void> changePassword(String password,BuildContext context) async {

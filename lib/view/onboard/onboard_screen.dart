@@ -87,8 +87,7 @@ class _OnBoardState extends State<OnBoard> {
 
                                   pageController.addListener(() {
                                     final currentPage = pageController.page;
-                                    if (currentPage == totalPages - 1 ||
-                                        currentPage == totalPages) {
+                                    if (currentPage == totalPages - 1) {
                                       Timer(const Duration(seconds: 1), () {
                                         Navigator.pushReplacement(
                                             context,

@@ -7,7 +7,7 @@ import '../../../../common/utils/dialogs/show_dialog.dart';
 import '../../../../services/remote/api_constants.dart';
 
 class EditEmailFunction {
-  Constants constants = Constants();
+  ApiConstants constants = ApiConstants();
 
   Future<void> editEmail(BuildContext context, String email) async {
     var response = await http.post(

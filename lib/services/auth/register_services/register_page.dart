@@ -18,7 +18,7 @@ class _RegisterState extends State<Register> {
   final _emailController = TextEditingController();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
-  Constants constants = Constants();
+  ApiConstants constants = ApiConstants();
   bool obscure = true;
   bool rememberMe = true;
 

@@ -7,7 +7,7 @@ import '../../remote/api_constants.dart';
 import 'job_selection_screen.dart';
 
 class RegisterFunction{
-  Constants constants = Constants();
+  ApiConstants constants = ApiConstants();
 
 
   Future<void> register(BuildContext context, String email, String username,

@@ -6,7 +6,7 @@ import '../../../../common/managers.dart';
 import '../../../../services/remote/api_constants.dart';
 
 class ChangePhoneFunction{
-  Constants constants = Constants();
+  ApiConstants constants = ApiConstants();
 
   void editMobile(BuildContext context, {required String mobile}) async {
     var response = await http.put(Uri.parse(constants.editProfileUrl),

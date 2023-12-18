@@ -9,7 +9,7 @@ import '../../remote/api_constants.dart';
 import 'package:http/http.dart' as http;
 
 class LoginFunction {
-  Constants constants = Constants();
+  ApiConstants constants = ApiConstants();
 
   Future<void> login(
       BuildContext context, String email, String password) async {
@@ -26,17 +26,14 @@ class LoginFunction {
       var jsonResponse = jsonDecode(response.body);
 
       String token = jsonResponse['token'];
-      generalToken = token;
       CacheHelper.saveData(key: "token", value: token).then((value) {
         generalToken = token;
       });
-      print(generalToken);
       ProfileScreenFunction().profileApi();
       Navigator.pushReplacement(
           context, customPageRouteTransition(const NavigationBarConfig()));
     } else {
       print("Sign in failed!");
-      print(response.statusCode);
       print(response.body);
     }
   }

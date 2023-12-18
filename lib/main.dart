@@ -4,7 +4,6 @@ import 'package:graduation_project/common/managers.dart';
 import 'package:graduation_project/services/local/shared_preferences.dart';
 import 'package:graduation_project/services/models/provider_models/jobs_services.dart';
 import 'package:graduation_project/view/onboard/splash_screen.dart';
-import 'package:graduation_project/view/user%20interface/profile/profile_screen/profile_screen_function.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 

@@ -3,7 +3,6 @@ import 'package:graduation_project/common/widgets/home_screen_widgets/recent_job
 import 'package:graduation_project/common/widgets/home_screen_widgets/suggested_job_container.dart';
 import 'package:graduation_project/common/widgets/reusable_text.dart';
 import '../../../common/managers.dart';
-import '../profile/profile_screen/profile_screen_function.dart';
 import 'applied_jobs/get_all_jobs_function.dart';
 
 class HomeScreen extends StatefulWidget {

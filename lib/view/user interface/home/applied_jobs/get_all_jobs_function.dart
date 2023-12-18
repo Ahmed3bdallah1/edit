@@ -4,7 +4,7 @@ import '../../../../common/managers.dart';
 import '../../../../services/remote/api_constants.dart';
 
 class GetAllJobsFunction{
-  Constants constants = Constants();
+  ApiConstants constants = ApiConstants();
 
   Future<List<Map<String, dynamic>>> getAllJobs() async {
     var response = await http.get(

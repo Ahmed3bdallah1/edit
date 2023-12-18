@@ -5,7 +5,7 @@ import '../../../../services/local/shared_preferences.dart';
 import '../../../../services/remote/api_constants.dart';
 
 class ProfileScreenFunction {
-  Constants constants = Constants();
+  ApiConstants constants = ApiConstants();
 
   Future<void> profileApi() async {
     var response = await http.get(

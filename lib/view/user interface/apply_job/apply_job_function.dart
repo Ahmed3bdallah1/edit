@@ -4,7 +4,7 @@ import '../../../common/managers.dart';
 import '../../../services/remote/api_constants.dart';
 
 class ApplyJobFunction{
-  Constants constants = Constants();
+  ApiConstants constants = ApiConstants();
 
   Future<void> applyToJobData(
       {required int jobId,

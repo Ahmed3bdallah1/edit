@@ -258,7 +258,7 @@ class _ApplyJobAddPortfolioState extends State<ApplyJobAddPortfolio> {
                             child: Container(
                               color: Colors.white.withOpacity(.3),
                               child: Image.asset(
-                                'assets/upload.png',
+                                'assets/portfolio/upload.png',
                                 height: 60,
                                 width: 60,
                               ),

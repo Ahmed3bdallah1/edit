@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../common/managers.dart';
-import '../../../services/remote/api_constants.dart';
 import '../messages/messages_screen.dart';
 import '../profile/profile_screen/profile_screen.dart';
 import 'applied_jobs/applied_jobs.dart';
@@ -41,8 +40,6 @@ class _NavigationBarConfigState extends State<NavigationBarConfig> {
           BottomNavigationBarItem(icon: Icon(Icons.message), label: "Messages"),
           BottomNavigationBarItem(
               icon: Icon(Icons.wallet_giftcard), label: "Applied"),
-          // BottomNavigationBarItem(
-          //     icon: Icon(Icons.save_rounded), label: "Saved"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
       ),

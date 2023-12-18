@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:graduation_project/common/managers.dart';
 import 'package:graduation_project/common/widgets/reusable_text.dart';
 import 'package:graduation_project/view/user%20interface/home/bottom_navigation_bar_config.dart';
-import 'package:graduation_project/view/user%20interface/home/home_screen.dart';
 import 'package:graduation_project/view/user%20interface/profile/profile_screen/profile_screen_function.dart';
 import 'onboard_screen.dart';
 
