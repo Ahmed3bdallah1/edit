@@ -27,7 +27,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     );
     if (response.statusCode == 200) {
       var jsonResponse = jsonDecode(response.body);
-      RegisterModel.fromJson(jsonResponse);
+      model = RegisterModel.fromJson(jsonResponse);
       debugPrint(jsonResponse);
       emit(DoneStateRegister(model!));
     } else {

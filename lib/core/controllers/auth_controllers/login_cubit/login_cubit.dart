@@ -29,7 +29,7 @@ class LoginCubit extends Cubit<LogInState> {
     );
     if (response.statusCode == 200) {
       var jsonResponse = jsonDecode(response.body);
-      LoginModel.fromJson(jsonResponse);
+      model = LoginModel.fromJson(jsonResponse);
 
       String token = jsonResponse['token'];
       CacheHelper.saveData(key: "token", value: token).then((value) {
