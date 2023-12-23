@@ -30,7 +30,7 @@ class JobsCubit extends Cubit<JobsState> {
     } else {
       print("error");
       emit(ErrorJobsState());
-      return null;
+      throw Exception("error");
     }
   }
 }
