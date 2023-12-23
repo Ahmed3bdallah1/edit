@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/models/applied_model/applied_model.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../../../managers/managers.dart';
@@ -10,6 +11,7 @@ class AppliedCubit extends Cubit<AppliedState> {
   AppliedCubit() : super(AppliedInitial());
 
   static AppliedCubit get(BuildContext context) => BlocProvider.of(context);
+  AppliedModel? model;
 
   ApiConstants constants = ApiConstants();
 
@@ -23,10 +25,15 @@ class AppliedCubit extends Cubit<AppliedState> {
       },
     );
     if (response.statusCode == 200) {
-      var data = json.decode(response.body);
-      var dataList = data['data'];
-      emit(DoneAppliedState());
-      return List<Map<String, dynamic>>.from(dataList);
+      var responseData = json.decode(response.body);
+      model = AppliedModel.fromJson(responseData);
+      List<dynamic> dataList = responseData['data'];
+      List<Map<String, dynamic>> mappedDataList = dataList.map((item) {
+        return item as Map<String, dynamic>;
+      }).toList();
+      print(mappedDataList);
+      emit(DoneAppliedState(model!));
+      return mappedDataList;
     } else {
       emit(ErrorAppliedState());
       throw Exception(response.statusCode);

@@ -42,7 +42,7 @@ class _SecondEditEmailState extends State<SecondEditEmail> {
         ChangeEmailCubit cubit = ChangeEmailCubit.get(context);
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Edit email"),
+            title: const Text("New email"),
           ),
           body: SafeArea(
               child: Padding(
@@ -54,7 +54,7 @@ class _SecondEditEmailState extends State<SecondEditEmail> {
                   children: [
                     const Row(children: [
                       ReusableAdjustedText(
-                          message: "Main e-mail address", size: 16)
+                          message: "New e-mail address", size: 16)
                     ]),
                     TextField(
                       controller: newEmailController,

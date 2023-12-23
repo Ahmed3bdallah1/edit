@@ -20,17 +20,18 @@ class JobsCubit extends Cubit<JobsState> {
       headers: {'Authorization': 'Bearer $generalToken'},
     );
 
-    if (response.statusCode == 200) {
-      print("success");
-      var data = json.decode(response.body);
-      model = JobsModel.fromJson(data);
-      var listData = data["data"];
-      emit(DoneJobsState(model!));
-      return List<Map<String, dynamic>>.from(listData);
-    } else {
-      print("error");
-      emit(ErrorJobsState());
-      throw Exception("error");
+    try {
+      if (response.statusCode == 200) {
+        print("success");
+        var data = json.decode(response.body);
+        model = JobsModel.fromJson(data);
+        var listData = data["data"];
+        emit(DoneJobsState(model!));
+        return List<Map<String, dynamic>>.from(listData);
+      }
+    } catch (e) {
+      throw Exception(e);
     }
+    return null;
   }
 }

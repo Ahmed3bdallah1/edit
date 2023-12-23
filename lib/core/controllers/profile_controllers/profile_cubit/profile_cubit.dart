@@ -22,7 +22,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     );
     if (response.statusCode == 200) {
       var jsonResounse = json.decode(response.body);
-      ProfileModel.fromJson(jsonResounse);
+      model= ProfileModel.fromJson(jsonResounse);
       var name = jsonResounse["data"]["name"];
       var email = jsonResounse["data"]["email"];
       var id = jsonResounse["data"]["id"];

@@ -74,8 +74,8 @@ class MyApp extends StatelessWidget {
           lazy: true,
         ),
         BlocProvider(
-          create: (context) => ProfileCubit(),
-          lazy: true,
+          create: (context) => ProfileCubit()..profileApi(),
+          lazy: false,
         ),
         BlocProvider(
           create: (context) => PortfolioCubit(),
@@ -83,7 +83,7 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) {
-            print("====bolc created=====");
+            print("====bloc created=====");
             return JobsCubit()..getAllJobs();
           },
           lazy: false,

@@ -10,7 +10,7 @@ class ProfileModel {
   });
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) => ProfileModel(
-    user: User.fromJson(json["user"]),
+    user: User.fromJson(json["data"]),
     status: json["status"],
   );
 }

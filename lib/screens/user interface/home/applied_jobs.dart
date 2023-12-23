@@ -19,12 +19,14 @@ class _AppliedJobsState extends State<AppliedJobs>
     with TickerProviderStateMixin {
   ApiConstants constants = ApiConstants();
   late TabController tabController;
+  late Future<List<Map<String,dynamic>>> applied;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     tabController = TabController(length: 2, vsync: this);
+    applied=AppliedCubit.get(context).appliedJobsApi();
   }
 
   @override
@@ -35,7 +37,6 @@ class _AppliedJobsState extends State<AppliedJobs>
       listener: (context, state) {},
       builder: (context, state) {
         AppliedCubit cubit = AppliedCubit.get(context);
-        var appliedData = cubit.appliedJobsApi();
         return Scaffold(
           appBar: AppBar(centerTitle: true, title: const Text("applied jobs")),
           body: Column(
@@ -111,7 +112,7 @@ class _AppliedJobsState extends State<AppliedJobs>
                             borderRadius: BorderRadius.circular(30),
                           ),
                           child: FutureBuilder<List<Map<String, dynamic>>>(
-                            future: appliedData,
+                            future: applied,
                             builder: (context, snapshot) {
                               if (snapshot.connectionState ==
                                   ConnectionState.waiting) {
@@ -184,7 +185,7 @@ class _AppliedJobsState extends State<AppliedJobs>
                             //     width: 1),
                           ),
                           child: FutureBuilder<List<Map<String, dynamic>>>(
-                            future: appliedData,
+                            future: applied,
                             builder: (context, snapshot) {
                               if (snapshot.connectionState ==
                                   ConnectionState.waiting) {

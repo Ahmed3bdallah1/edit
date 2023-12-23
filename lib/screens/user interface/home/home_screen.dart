@@ -7,10 +7,25 @@ import '../../widgets/home_screen_widgets/recent_job_container.dart';
 import '../../widgets/home_screen_widgets/suggested_job_container.dart';
 import '../../widgets/reusable_text.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   final String token;
 
   const HomeScreen({super.key, required this.token});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late Future<List<Map<String, dynamic>>?> jobsFuture;
+  int counter=0;
+
+  @override
+  void initState() {
+    super.initState();
+    final cubit = JobsCubit.get(context);
+    jobsFuture = cubit.getAllJobs();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,33 +118,38 @@ class HomeScreen extends StatelessWidget {
                         SizedBox(
                             height: 200,
                             child: FutureBuilder<List<Map<String, dynamic>>?>(
-                              future: cubit.getAllJobs(),
+                              future: jobsFuture,
                               builder: (context, snapshot) {
+                                counter++;
+                                print(counter);
                                 // this is the error
-
-                                if (snapshot.hasError) {
+                                // here is the infinite loop
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
                                   return const Center(
-                                      child: Text("error in getting data"));
+                                      child: CircularProgressIndicator());
+                                } else if (snapshot.connectionState ==
+                                    ConnectionState.done) {
+                                  return SizedBox(
+                                    child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: snapshot.data!.length,
+                                      itemBuilder: (context, index) {
+                                        print("infinite loop");
+                                        return Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            SuggestedJobContainerHS(
+                                                item: snapshot.data![index]),
+                                            const SizedBox(width: 20)
+                                          ],
+                                        );
+                                      },
+                                    ),
+                                  );
                                 }
-
-                                return SizedBox(
-                                  child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: snapshot.data!.length,
-                                    itemBuilder: (context, index) {
-                                      print("infinite loop");
-                                      var dataItem = snapshot.data![index];
-                                      return Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          SuggestedJobContainerHS(
-                                              item: dataItem),
-                                          const SizedBox(width: 20)
-                                        ],
-                                      );
-                                    },
-                                  ),
-                                );
+                                return const Center(
+                                    child: Text("error in getting data"));
                               },
                             )),
                         Row(
@@ -147,29 +167,32 @@ class HomeScreen extends StatelessWidget {
                         SizedBox(
                             height: height * .7,
                             child: FutureBuilder<List<Map<String, dynamic>>?>(
-                              future: cubit.getAllJobs(),
+                              future: jobsFuture,
                               builder: (context, snapshot) {
                                 // this is the error 2
-
-                                if (snapshot.hasError) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
                                   return const Center(
-                                      child: Text("error in getting data"));
+                                      child: CircularProgressIndicator());
+                                } else if (snapshot.connectionState ==
+                                    ConnectionState.done) {
+                                  print("--------------------");
+                                  return ListView.builder(
+                                    itemCount: snapshot.data!.length,
+                                    itemBuilder: (context, index) {
+                                      return Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          RecentJobContainerHs(
+                                              item: snapshot.data![index]),
+                                          const SizedBox(height: 20)
+                                        ],
+                                      );
+                                    },
+                                  );
                                 }
-
-                                print("--------------------");
-                                return ListView.builder(
-                                  itemCount: cubit.model!.data!.length,
-                                  itemBuilder: (context, index) {
-                                    var dataItem = snapshot.data![index];
-                                    return Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        RecentJobContainerHs(item: dataItem),
-                                        const SizedBox(height: 20)
-                                      ],
-                                    );
-                                  },
-                                );
+                                return const Center(
+                                    child: Text("error in getting data"));
                               },
                             )),
                       ],
