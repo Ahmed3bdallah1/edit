@@ -105,10 +105,12 @@ class HomeScreen extends StatelessWidget {
                             child: FutureBuilder<List<Map<String, dynamic>>?>(
                               future: cubit.getAllJobs(),
                               builder: (context, snapshot) {
-
-
                                 // this is the error
 
+                                if (snapshot.hasError) {
+                                  return const Center(
+                                      child: Text("error in getting data"));
+                                }
 
                                 return SizedBox(
                                   child: ListView.builder(
@@ -147,8 +149,12 @@ class HomeScreen extends StatelessWidget {
                             child: FutureBuilder<List<Map<String, dynamic>>?>(
                               future: cubit.getAllJobs(),
                               builder: (context, snapshot) {
-
                                 // this is the error 2
+
+                                if (snapshot.hasError) {
+                                  return const Center(
+                                      child: Text("error in getting data"));
+                                }
 
                                 print("--------------------");
                                 return ListView.builder(
