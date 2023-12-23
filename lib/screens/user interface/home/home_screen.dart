@@ -102,10 +102,14 @@ class HomeScreen extends StatelessWidget {
                             ]),
                         SizedBox(
                             height: 200,
-                            child: FutureBuilder<List<Map<String,dynamic>>?>(
+                            child: FutureBuilder<List<Map<String, dynamic>>?>(
                               future: cubit.getAllJobs(),
                               builder: (context, snapshot) {
-                                print("here is the error");
+
+
+                                // this is the error
+
+
                                 return SizedBox(
                                   child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
@@ -132,21 +136,21 @@ class HomeScreen extends StatelessWidget {
                               const ReusableAdjustedText(
                                   message: "Recent Jobs", size: 14),
                               GestureDetector(
-                                onTap: () {},
-                                child: const ReusableAdjustedText(
-                                  message: "View all",
-                                  size: 12,
-                                  color: Colors.blueAccent,
-                                ),
-                              )
+                                  onTap: () {},
+                                  child: const ReusableAdjustedText(
+                                      message: "View all",
+                                      size: 12,
+                                      color: Colors.blueAccent))
                             ]),
                         SizedBox(
                             height: height * .7,
                             child: FutureBuilder<List<Map<String, dynamic>>?>(
                               future: cubit.getAllJobs(),
                               builder: (context, snapshot) {
+
+                                // this is the error 2
+
                                 print("--------------------");
-                                print("here is the error number 2");
                                 return ListView.builder(
                                   itemCount: cubit.model!.data!.length,
                                   itemBuilder: (context, index) {
