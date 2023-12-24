@@ -2,16 +2,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/controllers/apply_controllers/applied_cubit/applied_cubit.dart';
-import 'package:graduation_project/core/controllers/apply_controllers/apply_job_cubit/apply_cubit.dart';
 import 'package:graduation_project/core/controllers/jobs_cubit/jobs_cubit.dart';
 import 'package:graduation_project/core/controllers/profile_controllers/change_email/change_email_cubit.dart';
 import 'package:graduation_project/core/controllers/profile_controllers/change_mobile/change_mobile_cubit.dart';
 import 'package:graduation_project/core/controllers/profile_controllers/change_password/change_password_cubit.dart';
 import 'package:graduation_project/core/controllers/profile_controllers/edit_profile/edit_profile_cubit.dart';
 import 'package:graduation_project/core/controllers/profile_controllers/profile_portfolio/portfolio_cubit.dart';
-import 'package:graduation_project/core/remote/dio_helper.dart';
 import 'package:graduation_project/screens/onboard/splash_screen.dart';
 import 'package:provider/provider.dart';
+
 import 'core/controllers/auth_controllers/login_cubit/login_cubit.dart';
 import 'core/controllers/auth_controllers/register_cubit/register_cubit.dart';
 import 'core/controllers/profile_controllers/profile_cubit/profile_cubit.dart';
@@ -84,9 +83,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) {
             print("====bloc created=====");
-            return JobsCubit()..getAllJobs();
+            return JobsCubit();
           },
-          lazy: false,
         ),
       ],
       child: MaterialApp(

@@ -1,9 +1,9 @@
 import 'dart:async';
+
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:graduation_project/core/controllers/jobs_cubit/jobs_cubit.dart';
-import '../../core/controllers/profile_controllers/profile_cubit/profile_cubit.dart';
+
 import '../../core/managers/managers.dart';
 import '../user interface/home/bottom_navigation_bar_config.dart';
 import '../widgets/reusable_text.dart';
@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Widget screen() {
     if (generalToken.isNotEmpty) {
-      JobsCubit.get(context).getAllJobs();
+      //JobsCubit.get(context).getAllJobs();
       return const NavigationBarConfig();
     }
     return const OnBoard();

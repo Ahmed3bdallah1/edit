@@ -1,13 +1,12 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:graduation_project/core/controllers/jobs_cubit/jobs_cubit.dart';
-import 'package:graduation_project/models/jobs/jobs_model.dart';
+
 import '../../../core/managers/managers.dart';
 import '../../../core/managers/navigation.dart';
 import '../../../core/managers/utils/colors/colors.dart';
 import '../../user interface/apply_job/apply_job1.dart';
 import '../../user interface/home/job_details.dart';
 import '../reusable_text.dart';
+
 class SuggestedJobContainerHS extends StatefulWidget {
   final Map<String, dynamic> item;
 
@@ -24,7 +23,7 @@ class _SuggestedJobContainerHSState extends State<SuggestedJobContainerHS> {
   @override
   Widget build(BuildContext context) {
     ColorConstantsGradient colorConstants = ColorConstantsGradient();
-    JobsCubit.get(context).getAllJobs();
+    //JobsCubit.get(context).getAllJobs();
     double width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () {
@@ -66,7 +65,7 @@ class _SuggestedJobContainerHSState extends State<SuggestedJobContainerHS> {
                           ),
                           ReusableAdjustedText(
                             message:
-                            "${widget.item["comp_name"] ?? "Amit"}  .  Egypt",
+                                "${widget.item["comp_name"] ?? "Amit"}  .  Egypt",
                             size: 12,
                             color: Colors.white,
                           ),
@@ -85,7 +84,7 @@ class _SuggestedJobContainerHSState extends State<SuggestedJobContainerHS> {
                         },
                         child: isSelected == false
                             ? const Icon(Icons.push_pin_outlined,
-                            color: Colors.white)
+                                color: Colors.white)
                             : const Icon(Icons.push_pin, color: Colors.white)),
                   )
                 ],

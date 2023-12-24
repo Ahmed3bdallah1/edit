@@ -1,11 +1,13 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/models/jobs/jobs_model.dart';
+import 'package:http/http.dart' as http;
+
 import '../../managers/managers.dart';
 import '../../remote/api_constants.dart';
 import 'jobs_state.dart';
-import 'package:http/http.dart' as http;
 
 class JobsCubit extends Cubit<JobsState> {
   JobsCubit() : super(JobsInitial());
@@ -22,8 +24,10 @@ class JobsCubit extends Cubit<JobsState> {
 
     try {
       if (response.statusCode == 200) {
-        print("success");
+        print("success y 3lek");
         var data = json.decode(response.body);
+        print(data);
+        print(response.body.length);
         model = JobsModel.fromJson(data);
         var listData = data["data"];
         emit(DoneJobsState(model!));
