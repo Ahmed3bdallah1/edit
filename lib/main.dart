@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/controllers/apply_controllers/applied_cubit/applied_cubit.dart';
+import 'package:graduation_project/core/controllers/apply_controllers/apply_job_cubit/apply_cubit.dart';
 import 'package:graduation_project/core/controllers/jobs_cubit/jobs_cubit.dart';
 import 'package:graduation_project/core/controllers/profile_controllers/change_email/change_email_cubit.dart';
 import 'package:graduation_project/core/controllers/profile_controllers/change_mobile/change_mobile_cubit.dart';
@@ -54,6 +55,10 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => AppliedCubit()..appliedJobsApi(),
+          lazy: true,
+        ),
+        BlocProvider(
+          create: (context) => ApplyCubit(),
           lazy: true,
         ),
         BlocProvider(

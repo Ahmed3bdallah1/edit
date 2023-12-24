@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/controllers/profile_controllers/profile_cubit/profile_cubit.dart';
 import 'package:graduation_project/core/controllers/profile_controllers/profile_portfolio/portfolio_state.dart';
+import 'package:graduation_project/screens/widgets/portifolio_widgets/future_builder_portfolio.dart';
 import '../../../core/controllers/profile_controllers/profile_portfolio/portfolio_cubit.dart';
+import '../../../core/managers/utils/dialogs/snak_bar.dart';
 import '../../widgets/reusable_text.dart';
 
 class Portfolio extends StatefulWidget {
@@ -18,35 +20,24 @@ class Portfolio extends StatefulWidget {
 }
 
 class _PortfolioState extends State<Portfolio> {
-  upload() async {
-    FilePickerResult? filePickerResult = await FilePicker.platform.pickFiles();
-    FilePickerResult? imageResult = await FilePicker.platform.pickFiles(
-      type: FileType.image,
-    );
+  late Future<List<dynamic>> appliedData;
 
-    if (filePickerResult != null) {
-      File file = File(filePickerResult.files.single.path ?? " ");
-      // String fileName = file.path.split("/").last;
-      String filePath = file.path;
-
-      File image = File(imageResult!.files.single.path ?? " ");
-      // String imageName = image.path.split("/").last;
-      String imagePath = image.path;
-
-      PortfolioCubit.get(context).postCv(context, filePath, imagePath);
-    } else {
-      print("result is null");
-    }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    appliedData = PortfolioCubit.get(context).getCVs();
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<PortfolioCubit, PortfolioState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is DonePortfolioState) {
+          showSnakBar(context, "files has been added");
+        }
+      },
       builder: (context, state) {
-        PortfolioCubit cubit = PortfolioCubit.get(context);
-        Future<List<Map<String, dynamic>>> appliedData = cubit.getCVs();
-
         return Scaffold(
           appBar: AppBar(
             title: const ReusableBigText(message: "Portfolio"),
@@ -118,7 +109,8 @@ class _PortfolioState extends State<Portfolio> {
                                             horizontal: 20, vertical: 8),
                                         child: ElevatedButton(
                                             onPressed: () {
-                                              upload();
+                                              PortfolioCubit.get(context)
+                                                  .upload(context);
                                             },
                                             style: ElevatedButton.styleFrom(
                                                 backgroundColor:
@@ -149,54 +141,7 @@ class _PortfolioState extends State<Portfolio> {
                                   // ListView.builder(itemBuilder: itemBuilder)
                                 ],
                               )),
-                          FutureBuilder<List<Map<String, dynamic>>>(
-                            future: appliedData,
-                            builder: (context, snapshot) {
-                              if (snapshot.connectionState ==
-                                  ConnectionState.waiting) {
-                                return const Center(
-                                    child: CircularProgressIndicator());
-                              } else if (snapshot.hasError) {
-                                return Center(
-                                    child: Text('Error: ${snapshot.error}'));
-                              } else if (!snapshot.hasData ||
-                                  snapshot.data!.isEmpty) {
-                                return const Center(
-                                    child: Column(
-                                  children: [
-                                    Text('No portfolio yet.'),
-                                  ],
-                                ));
-                              } else {
-                                return ListView.builder(
-                                  itemCount: snapshot.data!.length,
-                                  itemBuilder: (context, index) {
-                                    var item = snapshot.data![index];
-                                    print(item);
-                                    return Row(
-                                      children: [
-                                        ClipRRect(
-                                            child:
-                                                Image.network(item["image"])),
-                                        Column(
-                                          children: [
-                                            ReusableAdjustedText(
-                                                message: item["name"],
-                                                size: 12,
-                                                fontWeight: FontWeight.bold),
-                                            ReusableAdjustedText(
-                                                message: item["cv_file"],
-                                                size: 10,
-                                                color: Colors.grey)
-                                          ],
-                                        )
-                                      ],
-                                    );
-                                  },
-                                );
-                              }
-                            },
-                          ),
+                          futureBuilder(appliedData)
                         ],
                       ),
                     ],

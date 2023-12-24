@@ -25,7 +25,7 @@ class _ApplyJobAddPortfolioState extends State<ApplyJobAddPortfolio> {
   ColorConstantsGradient gradient = ColorConstantsGradient();
   late String file;
   late String image;
-  late Future<List<Map<String, dynamic>>> appliedData;
+  late Future<List<dynamic>> appliedData;
 
   @override
   void initState() {
@@ -165,7 +165,7 @@ class _ApplyJobAddPortfolioState extends State<ApplyJobAddPortfolio> {
                             border: Border.all(color: Colors.grey)),
                         child: Row(
                           children: [
-                            Image.asset("assets/pdf.png"),
+                            Image.asset("assets/portfolio/pdf.png"),
                             const SizedBox(width: 10),
                             const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -182,7 +182,7 @@ class _ApplyJobAddPortfolioState extends State<ApplyJobAddPortfolio> {
                         ),
                       ),
                       SizedBox(
-                          child: FutureBuilder<List<Map<String, dynamic>>>(
+                          child: FutureBuilder<List<dynamic>>(
                         future: appliedData,
                         builder: (context, snapshot) {
                           if (snapshot.connectionState ==
