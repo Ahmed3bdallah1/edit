@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:graduation_project/screens/widgets/home_screen_widgets/suggested_job_container.dart';
 
 import '../reusable_text.dart';
@@ -13,7 +14,7 @@ Widget buildSuggestedJobsSection(jobsFuture) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasData && snapshot.data != null) {
-            return buildSuggestedJobsList(snapshot.data!);
+            return buildSuggestedJobsList2(snapshot.data!);
           } else {
             return const Center(child: Text("Error in getting data"));
           }
@@ -55,6 +56,29 @@ Widget buildSuggestedJobsList(List<Map<String, dynamic>> jobs) {
           ],
         );
       },
+    ),
+  );
+}
+Widget buildSuggestedJobsList2(List<Map<String, dynamic>> jobs) {
+  return SizedBox(
+    height: 220,
+    child: CardSwiper(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      cardBuilder: (
+          context,
+          index,
+          horizontalOffsetPercentage,
+          verticalOffsetPercentage,
+          ) {
+        final cardDetail = jobs[index];
+        return GestureDetector(
+          child: SuggestedJobContainerHS(item: cardDetail),
+        );
+      },
+      cardsCount: jobs.length,
+      numberOfCardsDisplayed: 3,
+      scale: 0.95,
+      backCardOffset: const Offset(18, -15),
     ),
   );
 }

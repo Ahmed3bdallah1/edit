@@ -38,4 +38,18 @@ class JobsCubit extends Cubit<JobsState> {
     }
     return null;
   }
+
+  Future<List<Map<String, dynamic>>?> searchJobs(String query) async {
+    if (query.isEmpty) {
+      return getAllJobs();
+    } else {
+      final allJobs = await getAllJobs();
+      return allJobs?.where((job) {
+        final name = job["name"].toString().toLowerCase();
+        final company = job["company"].toString().toLowerCase();
+        return name.contains(query.toLowerCase()) ||
+            company.contains(query.toLowerCase());
+      }).toList();
+    }
+  }
 }
