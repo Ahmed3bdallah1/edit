@@ -10,7 +10,9 @@ Widget buildRecentJobsSection(double height, jobsFuture) {
         future: jobsFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return SizedBox(
+                height: height * .4,
+                child: const Center(child: CircularProgressIndicator()));
           } else if (snapshot.hasData && snapshot.data != null) {
             return buildRecentJobsList(snapshot.data!, height);
           } else {
