@@ -61,6 +61,7 @@ dependencies:
   bloc: ^8.1.2
   cached_network_image: ^3.3.0
   flutter_card_swiper: ^6.0.0
+  iconly: ^1.0.1
 
 
 dev_dependencies:

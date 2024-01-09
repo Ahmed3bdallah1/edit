@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/controllers/jobs_cubit/jobs_cubit.dart';
+import 'package:iconly/iconly.dart';
 import '../../../core/managers/managers.dart';
 import '../messages/messages_screen.dart';
 import '../profile/profile_screen.dart';
@@ -26,22 +27,60 @@ class _NavigationBarConfigState extends State<NavigationBarConfig> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.indigo,
-        unselectedItemColor: Colors.black,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: currentIndex,
-        onTap: (index) {
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: currentIndex,
+        onDestinationSelected: (int index) {
           setState(() {
             currentIndex = index;
           });
         },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
-          BottomNavigationBarItem(icon: Icon(Icons.message), label: "Messages"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.wallet_giftcard), label: "Applied"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+        indicatorColor: Colors.white,
+        destinations: [
+          NavigationDestination(
+            tooltip: "Home",
+            selectedIcon: Icon(
+              IconlyBold.home,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            icon: Icon(
+              IconlyLight.home,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            label: "Home",
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(
+              IconlyBold.chat,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            icon: Icon(
+              IconlyLight.wallet,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            label: "Chat",
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(
+              IconlyBold.paper_download,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            icon: Icon(
+              IconlyLight.graph,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            label: "Applied",
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(
+              IconlyBold.setting,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            icon: Icon(
+              IconlyLight.profile,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            label: "Profile",
+          ),
         ],
       ),
     );

@@ -23,7 +23,6 @@ class _SuggestedJobContainerHSState extends State<SuggestedJobContainerHS> {
   @override
   Widget build(BuildContext context) {
     ColorConstantsGradient colorConstants = ColorConstantsGradient();
-    //JobsCubit.get(context).getAllJobs();
     double width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () {
@@ -35,7 +34,10 @@ class _SuggestedJobContainerHSState extends State<SuggestedJobContainerHS> {
         width: width * .85,
         decoration: BoxDecoration(
             gradient: colorConstants.linearGradientWhiteBlue,
-            borderRadius: BorderRadius.circular(12)),
+            borderRadius: BorderRadius.circular(12),
+            image: const DecorationImage(
+              fit: BoxFit.fill,
+                image: AssetImage("assets/onboard/card7.jpg"))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
