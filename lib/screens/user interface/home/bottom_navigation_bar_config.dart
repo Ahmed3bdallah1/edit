@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/core/controllers/jobs_cubit/jobs_cubit.dart';
 import 'package:iconly/iconly.dart';
 import '../../../core/managers/managers.dart';
 import '../messages/messages_screen.dart';

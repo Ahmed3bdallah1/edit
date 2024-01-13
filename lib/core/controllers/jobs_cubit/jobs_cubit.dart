@@ -24,7 +24,6 @@ class JobsCubit extends Cubit<JobsState> {
 
     try {
       if (response.statusCode == 200) {
-        print("success y 3lek");
         var data = json.decode(response.body);
         print(data);
         print(response.body.length);
