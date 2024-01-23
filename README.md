@@ -1,16 +1,19 @@
 # graduation_project
 
-A new Flutter project.
+A job finder app.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+⚫ Accesses to network: using the connectivity package
 
-A few resources to get you started if this is your first Flutter project:
+⚫ Responsive UI: Delivers an optimal viewing experience across various screen sizes and devices
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+⚫ State Management: using the BLoC pattern for clean and efficient state management
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+⚫ HTTP: using HTTP requests to Amit Api
+
+⚫ Design Architecture: using MVC Design pattern 
+
+![home](https://github.com/Ahmed3bdallah1/edit/assets/122252444/ba7c69c9-0fb0-4411-909b-9ef53d99389f)
+![chats](https://github.com/Ahmed3bdallah1/edit/assets/122252444/09b48f15-9b27-43b8-b218-7b50668b5b9c)
+
